@@ -1,0 +1,59 @@
+{
+  "name": "@nodepit/jest-mongodb-downloader",
+  "version": "1.0.0-rc1",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "build": "tsc",
+    "lint": "eslint --ext .ts ./src",
+    "clean": "rimraf ./dist",
+    "preversion": "run-s clean lint build"
+  },
+  "dependencies": {
+    "cwd": "^0.10.0"
+  },
+  "devDependencies": {
+    "@types/cwd": "^0.10.0",
+    "@types/mongodb-memory-server": "^2.3.0",
+    "@types/node": "^10",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "mongodb-memory-server": "^6.6.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "mongodb-memory-server": "^6.6.1"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodePit/jest-mongodb-downloader.git"
+  },
+  "keywords": [
+    "mongodb",
+    "jest",
+    "mongodb-memory-server"
+  ],
+  "author": "nodepit.com",
+  "bugs": {
+    "url": "https://github.com/NodePit/jest-mongodb-downloader/issues"
+  },
+  "homepage": "https://github.com/NodePit/jest-mongodb-downloader#readme",
+  "description": "Script which simply downloads MongoDB as configured in `jest-mongodb-config.js`; useful for Docker caching.",
+  "engines": {
+    "node": ">=10"
+  }
+}
