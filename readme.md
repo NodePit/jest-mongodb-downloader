@@ -10,9 +10,10 @@ But [`jest-mongodb`](https://github.com/shelfio/jest-mongodb) does this automati
 
 1. Install with `yarn add @nodepit/jest-mongodb-downloader -D`
 
-2. Add the following line to your Dockerfile before running the tests
+2. Add the following line to your Dockerfile **before** running the tests and copying the source code (make sure that `jest-mongodb-config.js` is already in the image)
 
    ```Dockerfile
+   COPY jest-mongodb-config.js ./
    RUN yarn run jest-mongodb-downloader
    ```
 
