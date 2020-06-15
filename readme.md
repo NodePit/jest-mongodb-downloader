@@ -1,6 +1,6 @@
 # jest-mongodb-downloader
 
-When run, this script simply downloads the MongoDB version defined in `jest-mongodb-config.js`.
+When being run, this script simply downloads the MongoDB version defined in `jest-mongodb-config.js`.
 
 ## Why?
 
@@ -10,9 +10,13 @@ But [`jest-mongodb`](https://github.com/shelfio/jest-mongodb) does this automati
 
 1. Install with `yarn add @nodepit/jest-mongodb-downloader -D`
 
-2. Add the following line to your Dockerfile **before** running the tests and copying the source code (make sure that `jest-mongodb-config.js` is already in the image)
+2. Add the following line to your Dockerfile **before** running the tests and copying the source code (make sure that `jest-mongodb-config.js` is already in the image).
+
+   Add `MONGOMS_DISABLE_POSTINSTALL` to prevent downloading the default version of MongoDB and only install the version which is specified in the `jest-mongodb-config.js`.
 
    ```Dockerfile
+   ENV MONGOMS_DISABLE_POSTINSTALL=1
+   RUN yarn
    COPY jest-mongodb-config.js ./
    RUN yarn run jest-mongodb-downloader
    ```
