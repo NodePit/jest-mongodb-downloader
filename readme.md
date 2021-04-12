@@ -1,5 +1,23 @@
 # jest-mongodb-downloader
 
+## DEPRECATION NOTE
+
+We no longer need this -- there’s a **MUCH** easier workaround:
+
+1. If you rely on the default MongoDB version anyways -- all is fine. The MongoDB binary is downloaded on `postinstall`. Done!
+
+2. To configure a different version, do **not** specify it in `jest-mongodb-config.js`, but instead in the project’s `package.json`. This way, `postinstall` will install the specified version right-away!
+
+   ```
+   "config": {
+     "mongodbMemoryServer": {
+       "version": "4.2.8"
+     }
+   }
+   ```
+
+---
+
 When being run, this script simply downloads the MongoDB version defined in `jest-mongodb-config.js`.
 
 ## Why?
